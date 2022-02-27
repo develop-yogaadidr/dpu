@@ -9,9 +9,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react';
 import {Alert, Platform} from 'react-native';
 import messaging from '@react-native-firebase/messaging';
-// import {Actions} from 'react-native-router-flux';
 
- import Routes from './Routes'
+import Routes from './Routes';
 
 export default class App extends React.Component {
   async componentDidMount() {
@@ -125,7 +124,6 @@ export default class App extends React.Component {
     //   console.log(newnotif);
     //   let datam = JSON.parse(data.message);
     //   newnotif.push(datam);
-
     //   console.log('isi', JSON.stringify(newnotif));
     //   await AsyncStorage.setItem('notification', JSON.stringify(newnotif));
     // }
@@ -134,7 +132,7 @@ export default class App extends React.Component {
     const enabled = await messaging().hasPermission().catch();
     if (enabled) {
       this.getToken();
-    }else{
+    } else {
       this.requestPermission();
     }
   }
@@ -163,6 +161,8 @@ export default class App extends React.Component {
     }
   }
   render() {
-    return <Routes />;
+    return (
+        <Routes />
+    );
   }
 }

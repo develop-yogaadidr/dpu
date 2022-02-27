@@ -54,13 +54,9 @@ export const fetchFaq = token => {
     dispatch(requestPage());
     request('get', `/faq?api_token=${token}`)
       .then(({data}) => {
-        console.log(data);
-
         dispatch(requestFaq(data));
       })
       .catch(error => {
-        console.log({error});
-
         dispatch(requestPageFailed(error));
       });
   };
@@ -71,13 +67,9 @@ export const fetchContact = token => {
     dispatch(requestPage());
     request('get', `/contact?api_token=${token}`)
       .then(({data}) => {
-        console.log(data);
-
         dispatch(requestContact(data));
       })
       .catch(error => {
-        console.log({error});
-
         dispatch(requestPageFailed(error));
       });
   };
@@ -88,13 +80,9 @@ export const fetchInformation = token => {
     dispatch(requestPage());
     request('get', `/information?api_token=${token}`)
       .then(({data}) => {
-        console.log(data);
-
         dispatch(requestInformation(data));
       })
       .catch(error => {
-        console.log({error});
-
         dispatch(requestPageFailed(error));
       });
   };

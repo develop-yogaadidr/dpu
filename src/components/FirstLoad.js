@@ -38,11 +38,11 @@ class Menu extends Component {
           if (resultRole == 'admin') {
             // Actions.drawerMenuAdmin({type: 'reset'});
           } else {
-            // Actions.drawerMenu({type: 'reset'});
+            Actions.drawerMenu({type: 'reset'});
           }
         });
       } else {
-        // Actions.login();
+        Actions.login();
 
         /* AsyncStorage.getItem('fcmToken', (error, result) => {
               //this.props.saveFcmToken(result)
