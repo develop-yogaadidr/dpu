@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">dpu</string>
+    <string name="app_name">Jalan Cantik</string>
+    <string name="facebook_app_id">408260763235038</string> 
+    <string name="fb_login_protocol_scheme">fb408260763235038</string>
 </resources>
