@@ -5,13 +5,10 @@
  * @format
  * @flow
  */
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react';
-import {
-  View,Text
-} from 'react-native';
-// import {AsyncStorage, Alert, Platform} from 'react-native';
-// import firebase from 'react-native-firebase';
+import {Alert, Platform} from 'react-native';
+import messaging from '@react-native-firebase/messaging';
 // import {Actions} from 'react-native-router-flux';
 
  import Routes from './Routes'
@@ -134,45 +131,38 @@ export default class App extends React.Component {
     // }
   }
   async checkPermission() {
-    // const enabled = await firebase.messaging().hasPermission().catch();
-    // if (enabled) {
-    //   // this.getToken();
-    // } else {
-    //   // this.requestPermission();
-    // }
+    const enabled = await messaging().hasPermission().catch();
+    if (enabled) {
+      this.getToken();
+    }else{
+      this.requestPermission();
+    }
   }
   async requestPermission() {
-    // try {
-    //   await firebase.messaging().requestPermission();
-    //   // User has authorised
-    //   this.getToken();
-    // } catch (error) {
-    //   // User has rejected permissions
-    //   console.log('permission rejected');
-    // }
+    try {
+      await messaging().requestPermission();
+      // User has authorised
+      this.getToken();
+    } catch (error) {
+      // User has rejected permissions
+      console.log('permission rejected');
+    }
   }
   async getToken() {
-    // try {
-    //   let fcmToken = await AsyncStorage.getItem('fcmToken');
-
-    //   //AsyncStorage.getItem('token', (error, result) => {
-    //   if (fcmToken === undefined || fcmToken === null) {
-    //     fcmToken = await firebase.messaging().getToken();
-    //     console.log(fcmToken);
-    //     if (fcmToken) {
-    //       // user has a device token
-    //       await AsyncStorage.setItem('fcmToken', fcmToken);
-    //     }
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      let fcmToken = await AsyncStorage.getItem('fcmToken');
+      if (fcmToken === undefined || fcmToken === null) {
+        fcmToken = await messaging().getToken();
+        if (fcmToken) {
+          // user has a device token
+          await AsyncStorage.setItem('fcmToken', fcmToken);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   render() {
-    return <View>
-      <Text>
-        RUN
-      </Text>
-    </View>;
+    return <Routes />;
   }
 }
