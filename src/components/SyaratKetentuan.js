@@ -7,6 +7,8 @@ import {Left, Right, Button, Icon} from 'native-base';
 import WebView from 'react-native-webview';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Actions} from 'react-native-router-flux';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 class SyaratKetentuan extends Component {
   constructor(props) {
@@ -18,8 +20,7 @@ class SyaratKetentuan extends Component {
     };
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
     return (
@@ -32,7 +33,7 @@ class SyaratKetentuan extends Component {
                 onPress={() => {
                   Actions.pop();
                 }}>
-                <Icon name="arrow-back" />
+                <FontAwesomeIcon icon={faArrowLeft} style={{color: '#FFF', fontSize: 30}}/>
               </Button>
             </Left>
           }

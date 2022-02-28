@@ -23,6 +23,8 @@ import { connect } from 'react-redux'
 import HeaderComp from '../commons/HeaderComp';
 import gs from '../styles/styles'
 import Moment from 'moment'
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 class NotificationDetail extends Component{
   constructor(props){
@@ -121,7 +123,7 @@ class NotificationDetail extends Component{
        <HeaderComp
           Left={<Left>
             <Button transparent onPress={()=>{Actions.notificationList()}}>
-             <Icon name='arrow-back'/>
+            <FontAwesomeIcon icon={faArrowLeft} style={{color: '#FFF', fontSize: 30}}/>
             </Button>
           </Left>}
           title="Detail Notifikasi"

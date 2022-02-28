@@ -37,6 +37,16 @@ import gs from '../styles/styles';
 import {reportAll} from '../actions/ReportAction';
 import Moment from 'moment';
 
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {
+  faBell,
+  faTasks,
+  faInfo,
+  faCamera,
+  faBars,
+  faArrowLeft
+} from '@fortawesome/free-solid-svg-icons';
+
 class HomeAdmin extends Component {
   constructor(props) {
     super(props);
@@ -367,7 +377,7 @@ class HomeAdmin extends Component {
                 onPress={() => {
                   Actions.drawerOpen();
                 }}>
-                <Icon name="menu" />
+                <FontAwesomeIcon icon={faArrowLeft} style={{color: '#FFF', fontSize: 30}}/>
               </Button>
             </Left>
           }

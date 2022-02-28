@@ -11,6 +11,8 @@ import {connect} from 'react-redux';
 import HeaderComp from '../commons/HeaderComp';
 import gs from '../styles/styles';
 import {fetchFaq} from '../actions/PagesAction';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 class Faq extends Component {
   constructor(props) {
@@ -64,7 +66,7 @@ class Faq extends Component {
                 onPress={() => {
                   Actions.pop();
                 }}>
-                <Icon name="arrow-back" />
+                <FontAwesomeIcon icon={faArrowLeft} style={{color: '#FFF', fontSize: 30}}/>
               </Button>
             </Left>
           }

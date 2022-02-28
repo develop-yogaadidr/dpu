@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import {StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import ListView from "deprecated-react-native-listview";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 import 
 {
@@ -56,18 +58,6 @@ class ProgressReport extends Component{
 
     })
   }
- /* getDataUser(){
-    let token
-    let id_user
-     AsyncStorage.getItem('token', (error, result) => {
-          token = result
-        })
-     AsyncStorage.getItem('id_user', (error, result) => {
-          id_user = result
-        })
-     this.props.reportByUser(token, id_user)
-
-  }*/
 
   componentDidUpdate(prevProps) {
       if (JSON.stringify(this.props.dataReportUser) !== JSON.stringify(prevProps.dataReportUser)) {
@@ -87,7 +77,7 @@ class ProgressReport extends Component{
        <HeaderComp
           Left={<Left>
             <Button transparent onPress={()=>{Actions.pop()}}>
-             <Icon name='arrow-back'/>
+            <FontAwesomeIcon icon={faArrowLeft} style={{color: '#FFF', fontSize: 30}}/>
             </Button>
           </Left>}
           title="Progress Laporan"

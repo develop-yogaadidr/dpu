@@ -5,6 +5,8 @@ import axios from 'axios'
 import {addReport} from '../actions/ReportAction'
 import Spinner from 'react-native-loading-spinner-overlay';
 
+import Geolocation from '@react-native-community/geolocation';
+
 //import data_province from '../commons/data_province.json';
 import { connect } from 'react-redux'
 import {StyleSheet, Image, Modal, ToastAndroid, TouchableOpacity} from 'react-native';
@@ -44,6 +46,8 @@ import HeaderComp from '../commons/HeaderComp';
 import { colors, size, fonts } from '../styles/skeleton'
 import gs from '../styles/styles'
 import ImagePicker from 'react-native-image-picker';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 class ReportUser extends Component{
   constructor(props){
@@ -215,16 +219,19 @@ class ReportUser extends Component{
   componentDidMount() {
     this.getDataUser()
 
-    this.watchID = navigator.geolocation.watchPosition((position) => {
-      // Create the object to update this.state.mapRegion through the onRegionChange function
-      let region = {
-        latitude:       position.coords.latitude,
-        longitude:      position.coords.longitude,
-        latitudeDelta:  0.0043,
-        longitudeDelta: 0.0043
-      }
-      this.onRegionChange(region, region.latitude, region.longitude);
-    }, (error)=>console.log(error));
+    this.watchID = Geolocation.watchPosition((position) => {
+
+    })
+    // this.watchID = navigator.geolocation.watchPosition((position) => {
+    //   // Create the object to update this.state.mapRegion through the onRegionChange function
+    //   let region = {
+    //     latitude:       position.coords.latitude,
+    //     longitude:      position.coords.longitude,
+    //     latitudeDelta:  0.0043,
+    //     longitudeDelta: 0.0043
+    //   }
+    //   this.onRegionChange(region, region.latitude, region.longitude);
+    // }, (error)=>console.log(error));
   }
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);
@@ -432,8 +439,6 @@ class ReportUser extends Component{
       
   }
   render() {
-
-     
     return (
       <Container>
        <Spinner
@@ -443,7 +448,7 @@ class ReportUser extends Component{
        <HeaderComp
           Left={<Left>
             <Button transparent onPress={()=>{Actions.pop()}}>
-             <Icon name='arrow-back'/>
+            <FontAwesomeIcon icon={faArrowLeft} style={{color: '#FFF', fontSize: 30}}/>
             </Button>
           </Left>}
           title="Input Laporan"

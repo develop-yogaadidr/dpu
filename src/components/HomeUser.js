@@ -24,6 +24,14 @@ import HeaderComp from '../commons/HeaderComp';
 import {fonts} from '../styles/skeleton';
 import gs from '../styles/styles';
 import LocationServicesDialogBox from 'react-native-android-location-services-dialog-box';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {
+  faBell,
+  faTasks,
+  faInfo,
+  faCamera,
+  faBars
+} from '@fortawesome/free-solid-svg-icons';
 
 class HomeUser extends Component {
   constructor(props) {
@@ -128,7 +136,7 @@ class HomeUser extends Component {
                 onPress={() => {
                   Actions.drawerOpen();
                 }}>
-                <Icon name="menu" />
+                <FontAwesomeIcon icon={faBars} style={{color: '#FFF', fontSize: 30}}/>
               </Button>
             </Left>
           }
@@ -140,7 +148,10 @@ class HomeUser extends Component {
                 onPress={() => {
                   Actions.notificationList();
                 }}>
-                <Icon type="FontAwesome" name="bell" />
+                <FontAwesomeIcon
+                  icon={faBell}
+                  style={{color: '#FFF', fontSize: 30}}
+                />
               </Button>
             </Right>
           }
@@ -170,7 +181,10 @@ class HomeUser extends Component {
                 }}>
                 <View style={styles.linkMenuUser}>
                   <View style={{width: 50}}>
-                    <Icon name="camera" style={{color: '#FFF', fontSize: 30}} />
+                    <FontAwesomeIcon
+                      icon={faCamera}
+                      style={{color: '#FFF', fontSize: 30}}
+                    />
                   </View>
                   <View style={{width: 180}}>
                     <Text style={styles.textMenu}>LAPORKAN KERUSAKAN</Text>
@@ -186,10 +200,8 @@ class HomeUser extends Component {
                 }}>
                 <View style={styles.linkMenuUser}>
                   <View style={{width: 50}}>
-                    <Icon
-                      type="FontAwesome"
-                      active
-                      name="tasks"
+                    <FontAwesomeIcon
+                      icon={faTasks}
                       style={{color: '#FFF', fontSize: 30}}
                     />
                   </View>
@@ -207,10 +219,8 @@ class HomeUser extends Component {
                 }}>
                 <View style={styles.linkMenuUser}>
                   <View style={{width: 50}}>
-                    <Icon
-                      type="FontAwesome"
-                      active
-                      name="info"
+                    <FontAwesomeIcon
+                      icon={faInfo}
                       style={{color: '#FFF', fontSize: 30}}
                     />
                   </View>

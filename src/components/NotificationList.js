@@ -22,6 +22,8 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 import HeaderComp from '../commons/HeaderComp';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 class NotificationList extends Component {
   constructor(props) {
@@ -94,7 +96,7 @@ class NotificationList extends Component {
                     Actions.homeUser();
                   }
                 }}>
-                <Icon name="arrow-back" />
+                <FontAwesomeIcon icon={faArrowLeft} style={{color: '#FFF', fontSize: 30}}/>
               </Button>
             </Left>
           }

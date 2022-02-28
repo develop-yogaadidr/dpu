@@ -34,6 +34,8 @@ import gs from '../styles/styles'
 import Moment from 'moment'
 import MapView, {AnimatedRegion, Marker}  from 'react-native-maps'
 import ImagePicker from 'react-native-image-picker';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 import 'moment/locale/id';
 Moment.locale('id');
@@ -347,7 +349,7 @@ class DetailReportAdmin extends Component{
        <HeaderComp
           Left={<Left>
             <Button transparent onPress={()=>{Actions.pop()}}>
-             <Icon name='arrow-back'/>
+            <FontAwesomeIcon icon={faArrowLeft} style={{color: '#FFF', fontSize: 30}}/>
             </Button>
           </Left>}
           title="Detail  Laporan"
